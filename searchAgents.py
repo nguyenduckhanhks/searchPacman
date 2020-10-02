@@ -376,27 +376,27 @@ def cornersHeuristic(state, problem):
     walls = problem.walls # These are the walls of the maze, as a Grid (game.py)
 
     "*** YOUR CODE HERE ***"
-    arrFood = [state[0]]
+    arrCorner = [state[0]]
     for x in corners:
         if x not in state[1]:
-            arrFood.append(x)
+            arrCorner.append(x)
 
     arrayDistance = []
-    for x in range(0, len(arrFood)):
-        point1 = arrFood[x]
+    for x in range(0, len(arrCorner)):
+        point1 = arrCorner[x]
         point1Distance = [] 
 
-        for y in range(0, len(arrFood)):
-            point2 = arrFood[y]
+        for y in range(0, len(arrCorner)):
+            point2 = arrCorner[y]
             distance = abs( point1[0] - point2[0] ) + abs( point1[1] - point2[1] )
             point1Distance.append(distance)
 
         arrayDistance.append( point1Distance )
     
     totalCost = 0.0
-    for x in range(0, len(arrFood)):
+    for x in range(0, len(arrCorner)):
         minCost1 = 99999.0
-        for y in range(x, len(arrFood)):
+        for y in range(x, len(arrCorner)):
             if arrayDistance[x][y] != 0 and arrayDistance[x][y] < minCost1:
                 minCost1 = arrayDistance[x][y]
         if minCost1 == 99999.0:
@@ -567,7 +567,7 @@ class ClosestDotSearchAgent(SearchAgent):
                     return top[1]
                 for nextState in problem.getSuccessors(top[0]):
                     queue.append((nextState[0], top[1] + [nextState[1]]))
-                    
+
         util.raiseNotDefined()
 
 class AnyFoodSearchProblem(PositionSearchProblem):

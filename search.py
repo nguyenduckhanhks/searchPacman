@@ -91,7 +91,6 @@ def depthFirstSearch(problem):
     visited = []
 
     stack.append((problem.getStartState(),[]))
-
     while len(stack) > 0:
         top = stack.pop()
         if top[0] not in visited:
