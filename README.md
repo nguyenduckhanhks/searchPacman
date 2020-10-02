@@ -79,7 +79,7 @@
         self._expanded += 1
         return successors
         
- #Question 6 (3 points): Corners Problem: Heuristic
+ # Question 6 (3 points): Corners Problem: Heuristic
  
  1. Ý tưởng
  
